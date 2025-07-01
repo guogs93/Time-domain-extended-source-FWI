@@ -1,0 +1,73 @@
+#
+#   version 
+#
+###########################################
+###########################################
+#   SETUP WHERE IS THE linear algebra procedures
+###########################################
+###########################################
+#OPTIM = /lus/scratch/CT4/ocd0596/ggaoshan/WINDSVN/share/OPTIMIZATION
+
+###########################################
+# ENV SETUP intel compilers
+###########################################
+
+###########################################
+# ENV SETUP FFTW library
+###########################################
+#module load fftw/3.3.8
+# or link with own libraries compiled from wind_codes/share/FFTW sources
+#FFTW3=../../../../share/FFTW/fftw-3.3.8
+FFTW3_LIB=${FFTW_DIR}
+FFTW3_INC=${FFTW_INC}
+###########################################
+
+# Orderings
+LMETIS   = $(METIS_ROOT)/lib/libmetis.so
+IMETIS   = -I$(METIS_ROOT)/include
+
+ORDERINGSF = -Dmetis -Dpord
+ORDERINGSC  = $(ORDERINGSF)
+
+LORDERINGS = $(LMETIS) $(LPORD)
+IORDERINGSF = $(IMETIS)
+IORDERINGSC = $(IMETIS) $(IPORD) 
+
+# MUMPS
+LMUMPS = $(MUMPS_DIR)/lib/libsmumps.a $(MUMPS_DIR)/lib/libmumps_common.a $(MUMPS_DIR)/lib/libpord.a
+
+# GNU OpenBLAS + CRAY Scientific LIBRARY Lib Sci ...
+LBLAS = $(OPENBLAS_ROOT)/libopenblas.a /opt/cray/pe/gcc-libs/libgfortran.so.5 -lm -ldl
+LSCI = -L$(CRAY_PE_LIBSCI_PREFIX_DIR)/lib -lsci_cray_mp -lsci_cray_mpi_mp
+
+###########################################
+###########################################
+#   DONE     TENTATIVELY YOU SHOULD NOT MODIFY BELOW
+###########################################
+###########################################
+
+RM = /bin/rm -f
+
+CC =  cc
+FC =  ftn 
+F77 = ${FC}
+F90 = ${FC}
+FL =  ${FC}
+
+AR = ar vr
+RANLIB  = echo
+
+#OPTIONS COMPILE
+ 
+OPTF =  -O2 -h omp #-hmsgs 
+OPTC =  -O2 -h omp #-hmsgs
+OPTL =  -O2 -h omp #-hmsgs
+
+LOPTIM=-L$(OPTIM)/lib -lSEISCOPE_OPTIM
+
+INCPAR =-I$(OPTIM)/COMMON/include -I${FFTW3_INC} $(IORDERINGSF) -I$(MUMPS_DIR)/include 
+LIBPAR=$(LOPTIM) -L${FFTW3_LIB} -lfftw3 $(LMUMPS) $(LORDERINGS) $(LBLAS) $(LSCI) 
+
+INC = $(INCPAR)
+LIB = $(LIBPAR)
+

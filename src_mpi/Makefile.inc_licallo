@@ -1,0 +1,68 @@
+#
+#   version 
+#
+###########################################
+###########################################
+#   SETUP WHERE IS THE linear algebra procedures
+###########################################
+###########################################
+OPTIM=../../../../share/OPTIMIZATION_noline
+###########################################
+
+###########################################
+###########################################
+#   DONE     TENTATIVELY YOU SHOULD NOT MODIFY BELOW
+###########################################
+###########################################
+
+RM = /bin/rm -f
+
+CC =  mpiicc 
+FC =  mpiifort 
+FL =  mpiifort 
+
+F77 = mpiifort 
+F90 = mpiifort 
+ICC = mpiicc 
+
+AR = ar vr
+RANLIB  = echo
+
+#OPTIONS COMPILE
+ 
+OPTF =  -O3 -assume byterecl -qopenmp
+OPTC =  -O3 -assume byterecl -qopenmp
+OPTL =  -O3 -assume byterecl -qopenmp
+
+#DEBUG VERBEUX
+#OPTF =  -assume byterecl -qopenmp -g -warn all
+#OPTC =  -assume byterecl -qopenmp -g -warn all
+#OPTL =  -assume byterecl -qopenmp -g -warn all
+
+#DEBUG AGRESSIF
+#OPTF =  -assume byterecl -qopenmp -g -traceback -check bounds -fp-stack-check -gen-interfaces -warn interfaces -check arg_temp_created
+#OPTC =  -assume byterecl -qopenmp -g -traceback -check bounds -fp-stack-check -gen-interfaces -warn interfaces -check arg_temp_created
+#OPTL =  -assume byterecl -qopenmp -g -traceback -check bounds -fp-stack-check -gen-interfaces -warn interfaces -check arg_temp_created
+
+#DEBUG LIGHT
+
+#OPTF =  -O2 -g -assume byterecl -qopenmp 
+#OPTC =  -O2 -g -assume byterecl -qopenmp
+#OPTL =  -O2 -g -assume byterecl -qopenmp
+
+
+LOPTIM=-L $(OPTIM)/lib -lSEISCOPE_OPTIM
+########################################################################
+INCPAR =  -I$(LIB)/COMMON/include -I ../inc
+##############################################################################
+
+INCPAR =-I $(OPTIM)/COMMON/include -I ../inc -I${FFTW3_INC}
+LIBPAR=$(LOPTIM) -L ${FFTW3_LIB}  -lfftw3
+
+#INCPAR =-I $(OPTIM)/COMMON/include -I ../inc
+#LIBPAR=$(LOPTIM) 
+
+
+INC = $(INCPAR)
+LIB = $(LIBPAR)
+
