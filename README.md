@@ -15,7 +15,7 @@ To clean compiled objects and binaries, run: make clean && make all
 
 If you use this code in your research or publication, please cite the following paper:
 
-@article{Guo_2025_, 
+@article{Guo_2025_RIC, 
 author = {Guo, Gaoshan and Operto, Stéphane},
 title = {Robust imaging of the crust from long-offset ocean-bottom seismometer data using time-domain extended-source full-waveform inversion: Application to the eastern Nankai Trough, Japan}, 
 journal = {submitted to GRL}, 
