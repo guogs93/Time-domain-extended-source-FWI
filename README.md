@@ -4,7 +4,7 @@ The code was developed by Gaoshan Guo during his PhD and postdoc (2021.01~2024.1
 
 We gratefully acknowledge the sponsorship of AkerBP, ExxonMobil, Petrobras, Shell, and SINOPEC.
 
-It is designed for high-performance computing environments and has been tested on various supercomputing platforms.
+A detailed README file and demonstration examples will be released upon acceptance of the associated manuscript.
 
 Usage
 This code is intended for researchers working in seismic imaging of OBS data. 
@@ -12,8 +12,6 @@ This code is intended for researchers working in seismic imaging of OBS data.
 Compilation and running instructions depend on the computing environment—please refer to your corresponding Makefile.inc_* file.
 
 To clean compiled objects and binaries, run: make clean && make all
-
-If you use this code in your research or publication, please cite the following paper:
 
 If you use this code in your research or publication, please cite the following paper:
 
