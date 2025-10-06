@@ -17,7 +17,7 @@ If you use this code in your research or publication, please cite the following 
 
 ```bibtex
 @article{Guo_2025_RIC,
-  author = {Guo, Gaoshan and Operto, Stéphane},
+  author = {Guo, Gaoshan and Operto, Stéphane and Jean-Xavier, Dessa},
   title = {Robust imaging of the crust from long-offset ocean-bottom seismometer data using time-domain extended-source full-waveform inversion: Application to the eastern Nankai Trough, Japan},
-  journal = {submitted to GRL},
+  journal = {submitted to JGR: Solid Earth},
 }
