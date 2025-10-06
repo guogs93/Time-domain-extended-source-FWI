@@ -6,7 +6,6 @@ We gratefully acknowledge the sponsorship of AkerBP, ExxonMobil, Petrobras, Shel
 
 A detailed README file and demonstration examples will be released upon acceptance of the associated manuscript.
 
-Usage
 This code is intended for researchers working in seismic imaging of OBS data. 
 
 Compilation and running instructions depend on the computing environment—please refer to your corresponding Makefile.inc_* file.
